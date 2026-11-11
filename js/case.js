@@ -30,6 +30,8 @@
     el.style.setProperty('--k', (el.parentElement.clientWidth / w).toFixed(4));
   });
   fitWalls(); fitBoxes();
+  // strip centre: on phones the five-state strip scrolls sideways — start in the middle
+  $$('.strip-scroll').forEach(s => { if (s.scrollWidth > s.clientWidth + 4) s.scrollLeft = (s.scrollWidth - s.clientWidth) / 2; });
   window.addEventListener('resize', () => { fitWalls(); fitBoxes(); }, { passive: true });
 
   // pause looping animations while off screen

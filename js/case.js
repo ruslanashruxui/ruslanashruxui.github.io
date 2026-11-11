@@ -26,7 +26,7 @@
     w.style.setProperty('--k', k.toFixed(4));
   });
   const fitBoxes = () => $$('.fit').forEach(el => {
-    const w = +el.dataset.w || 1440;
+    const w = (matchMedia('(max-width:860px)').matches && +el.dataset.wm) || +el.dataset.w || 1440;
     el.style.setProperty('--k', (el.parentElement.clientWidth / w).toFixed(4));
   });
   fitWalls(); fitBoxes();

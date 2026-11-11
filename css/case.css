@@ -1375,9 +1375,6 @@ h2{font-weight:600;font-size:clamp(32px, 3.6vw, 52px);line-height:1.1;letter-spa
   .case-hobby-index .wfui{margin-top:44px}
   .case-hobby-index .wfui .tags{top:-40px;height:28px}
   /* mobile + desktop combos: desktop full width, phone centred below with a small overlap */
-  .case-hobby-index .combo__stage{aspect-ratio:1/1.32;margin-top:24px}
-  .case-hobby-index .combo .desk,.case-hobby-index .combo.flip .desk{left:0;right:auto;width:100%}
-  .case-hobby-index .combo .phone,.case-hobby-index .combo.flip .phone{left:24%;width:52%;margin-top:0;top:36%}
   /* five states: bigger phones, swipe sideways */
   .case-hobby-index .strip-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .case-hobby-index .strip-scroll::-webkit-scrollbar{display:none}
@@ -1389,3 +1386,40 @@ h2{font-weight:600;font-size:clamp(32px, 3.6vw, 52px);line-height:1.1;letter-spa
   .case-hobby-index .life .chev{transform:rotate(90deg);align-self:center;margin:0}
 }
 .swipe{display:none;text-align:center;font-size:13px;letter-spacing:.06em;color:var(--dim);margin-top:6px}
+
+/* Mobile fixes, batch 2 (11.11) */
+@media (max-width:860px){
+  /* HobbyX: wireframe → UI phones stacked */
+  .case-hobby-index .wfui{aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:76px;padding-top:48px;margin-top:8px}
+  .case-hobby-index .wfui .slot{position:relative;left:auto !important;top:auto;width:72%}
+  .case-hobby-index .wfui .tags{top:-44px;height:32px}
+  /* HobbyX: mobile + desktop combos — desktop full width, phone below overlapping, calm fade-up */
+  .case-hobby-index .combo{padding:56px 0 24px}
+  .case-hobby-index .combo__stage{aspect-ratio:auto;height:auto;display:flex;flex-direction:column;align-items:center;margin-top:24px}
+  .case-hobby-index .combo .desk,.case-hobby-index .combo.flip .desk{position:relative;left:auto;right:auto;top:auto;width:100%;max-width:none}
+  .case-hobby-index .combo .phone,.case-hobby-index .combo.flip .phone{position:relative;left:auto;right:auto;top:auto;width:58%;margin-top:-12%}
+  .anim .case-hobby-index .combo .from-left,.anim .case-hobby-index .combo .from-right{transform:translateY(24px)}
+  .anim .case-hobby-index .combo .rise{--ry:40px !important}
+  .anim .case-hobby-index .combo .from-left.on,.anim .case-hobby-index .combo .from-right.on{transform:none}
+  /* LMS: shared-data link centred */
+  .case-lms-workiverse .eco .link{justify-content:center}
+  /* Premonio: number above the title */
+  .case-premonio .pdec .top{flex-direction:column;align-items:flex-start;gap:10px}
+  /* Premonio: site pages — bigger, swipe sideways */
+  .case-premonio .sitemap{display:flex;overflow-x:auto;overflow-y:hidden;gap:14px;margin:0 -24px;padding:0 24px 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .case-premonio .sitemap::-webkit-scrollbar{display:none}
+  .case-premonio .thumb{flex:0 0 46%;scroll-snap-align:start}
+  .case-premonio .swipe{display:block;margin-top:12px}
+  /* Premonio: request → decision pairs read as one unit */
+  .case-premonio .fb{gap:32px}
+  .case-premonio .fbrow{gap:4px}
+  .case-premonio .farr{transform:rotate(90deg);font-size:20px;line-height:1;padding:2px 0}
+  /* Premonio: PDF fan larger */
+  .case-premonio .fan{aspect-ratio:1/.8;margin:0 -8px}
+  .case-premonio .fan .pdf{width:34%;left:calc(var(--x) * .8% + 3%)}
+  .anim .case-premonio .fan:not(.on) .pdf{left:33%}
+  /* Ad Fraud: hero widgets not clipped */
+  .case-ad-fraud-protection .collage-wrap{aspect-ratio:720/800}
+  /* EduPortal: hero browser + phone fully visible */
+  .case-eduportal .e-stage-wrap{aspect-ratio:950/820}
+}

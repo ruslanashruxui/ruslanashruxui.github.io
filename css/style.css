@@ -236,7 +236,9 @@ a.case-link:hover .polaroid, .polaroid:hover{transform:rotate(0deg) translateY(c
   .stage{width:auto;height:auto;padding:0 20px}
   .abs{position:relative;left:auto;top:auto;width:auto}
   .tape{--s:.85}
-  .nav{position:sticky;top:0;height:auto;padding-bottom:10px}
+  .nav{position:sticky;top:0;height:auto;padding-bottom:10px;transition:transform .35s cubic-bezier(.22,1,.36,1), background-color .35s ease, box-shadow .35s ease}
+  .nav.is-stuck{background-color:rgba(236,231,223,.97)}
+  .nav.is-hidden{transform:translateY(-100%);box-shadow:none}
   html{scroll-padding-top:110px}
   .nav__in{width:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:18px 20px 0;gap:12px}
   .nav__logo,.nav__links,.nav__cta{position:static;transform:none}

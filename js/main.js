@@ -13,8 +13,22 @@
   /* ---------- sticky header: paper background once the page scrolls ---------- */
   const nav = $('.nav');
   if (nav) {
-    const stick = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
-    stick(); window.addEventListener('scroll', stick, { passive: true });
+    const small = window.matchMedia('(max-width: 860px)');
+    let lastY = window.scrollY, ticking = false;
+    const stick = () => {
+      const y = window.scrollY;
+      nav.classList.toggle('is-stuck', y > 8);
+      // phones: hide the header while scrolling down, bring it back on any scroll up
+      if (small.matches && Math.abs(y - lastY) > 6) {
+        nav.classList.toggle('is-hidden', y > lastY && y > 140);
+        lastY = y;
+      } else if (!small.matches) nav.classList.remove('is-hidden');
+      ticking = false;
+    };
+    stick();
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(stick); } }, { passive: true });
+    // a tap on a menu link scrolls down — keep the header out of the way, it returns on scroll up
+    $$('.nav a[href^="#"]').forEach(a => a.addEventListener('click', () => { lastY = window.scrollY; }));
   }
 
   /* ---------- path lengths for hand-drawn strokes ---------- */

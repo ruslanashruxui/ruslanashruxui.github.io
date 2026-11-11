@@ -1355,3 +1355,15 @@ h2{font-weight:600;font-size:clamp(32px, 3.6vw, 52px);line-height:1.1;letter-spa
 .case-eduportal .next small{display:inline-block;background:#fff;border-radius:100px;padding:5px 12px;font-weight:600;font-size:12px;letter-spacing:.06em;align-self:flex-start}
 .case-eduportal .next .nx small{align-self:flex-end}
 @media (max-width:640px){ .case-eduportal .next .nx small{align-self:flex-start} }
+
+/* ==================== Mobile fixes (after live check 11.11) ==================== */
+@media (max-width:860px){
+  .found2{grid-template-columns:minmax(0, 1fr)}
+  .found2 .panel{min-width:0}
+}
+@media (max-width:560px){
+  .sw{grid-template-columns:repeat(2, minmax(0, 1fr))}
+  .sw b{overflow-wrap:anywhere}
+  .bento{grid-template-columns:minmax(0, 1fr)}
+  .tile.screens,.tile.weeks{grid-column:auto}
+}

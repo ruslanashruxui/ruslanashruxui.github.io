@@ -257,3 +257,11 @@
     tt = setTimeout(() => toast.classList.remove('on'), 2200);
   }));
 })();
+/* ---------- GoatCounter analytics ---------- */
+(function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://ruslana.goatcounter.com/count');
+  document.head.appendChild(s);
+})();
